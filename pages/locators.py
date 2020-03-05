@@ -24,4 +24,8 @@ class ProductPageLocators():
     #PRODUCT_TITLE_TEXT = browser.find_element_by_css_selector('.product_main h1').text
     PRODUCT_TITLE_AT_BASKET = (By.CSS_SELECTOR, "#messages .alertinner strong")
     #PRODUCT_TITLE_AT_BASKET_TEXT = PRODUCT_TITLE_AT_BASKET.text
-    PRODUCT_AT_BASKET = (By.CSS_SELECTOR, "#messages .alert-success:nth-child(2) .alertinner")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert-success:nth-child(2) .alertinner")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
