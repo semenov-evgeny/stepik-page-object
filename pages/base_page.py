@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
 import math
+import faker
 
 class BasePage():
     def __init__(self, browser, url, timeout=10):
@@ -65,3 +66,8 @@ class BasePage():
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), \
         "Login link is not presented"
+
+    # реализована проверка авторизации клиента
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), \
+        "User icon is not presented, probably unauthorised user"

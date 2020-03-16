@@ -16,8 +16,8 @@ class MainPage(BasePage):
         add_to_basket = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_TO_BASKET)
         add_to_basket.click()
         self.solve_quiz_and_get_code()
-        #self.should_be_add_to_basket()
-
+        
+    # метод перехода на страницу корзины
     def go_to_basket_page(self):
         go_to_basket = self.browser.find_element(*MainPageLocators.BASKET_LINK)
         go_to_basket.click()

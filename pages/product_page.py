@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import ProductPageLocators, BasketPageLocators
 
 
 class ProductPage(BasePage):
@@ -30,12 +30,8 @@ class ProductPage(BasePage):
 
     # реализована проверка соответствия цен
     def should_be_equal_cost(self):
-        price_on_card = self.browser.find_element_by_css_selector('.product_main .price_color').text
-        # переделать для подтягивания данных из файла с локаторами
-        #print(f' цена в заголовке - {price_on_card}')
-        price_on_basket = self.browser.find_element_by_css_selector('.alert-info .alertinner strong').text
-        # переделать для подтягивания данных из файла с локаторами
-        #print(f' цена в корзине - {price_on_basket}')
+        price_on_card = self.browser.find_element(*ProductPageLocators.PRICE_ON_CARD).text
+        price_on_basket = self.browser.find_element(*ProductPageLocators.PRICE_ON_BASKET).text
         assert price_on_card == price_on_basket, \
         "The price of the item in the basket and the price of the item in the display"
         assert True
@@ -48,12 +44,8 @@ class ProductPage(BasePage):
 
     # реализована проверка соответствия имен товара и товара в корзине
     def should_be_equal_product_name(self):
-        product_title = self.browser.find_element_by_css_selector('.product_main h1').text
-        # переделать для подтягивания данных из файла с локаторами
-        #print(f' титул в заголовке - {product_title}')
-        product_title_at_basket = self.browser.find_element_by_css_selector('.alertinner strong').text
-        # переделать для подтягивания данных из файла с локаторами
-        #print(f' титул в корзине - {product_title_at_basket}')
+        product_title = self.browser.find_element(*ProductPageLocators.PRODUCT_TITLE).text
+        product_title_at_basket = self.browser.find_element(*ProductPageLocators.PRODUCT_TITLE_AT_BASKET).text
         assert product_title == product_title_at_basket, \
         "Product title is error"
         assert True
