@@ -2,7 +2,6 @@ from .base_page import BasePage
 from .locators import LoginPageLocators
 
 
-
 class LoginPage(BasePage):
     # тест кейс проверок
     def should_be_login_page(self):
